@@ -5,7 +5,7 @@ static CODE: &str = include_str!(r#"../examples/texlab.tex"#);
 fn criterion_benchmark(c: &mut Criterion) {
     let mut parser = tree_sitter::Parser::new();
     parser
-        .set_language(&codebook_tree_sitter_latex::language())
+        .set_language(&codebook_tree_sitter_latex::LANGUAGE.into())
         .unwrap();
 
     c.bench_function("Full", |b| {
